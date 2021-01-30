@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HomePage.master.cs" Inherits="SnkrsHome.UserLayer.HomePage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>SnkrsHome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/master.css" rel="stylesheet" />
+    <link href="../Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="../Content/font-awesome.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-3.5.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <%--Navigation Bar section--%>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="HomeMenu.aspx">SnkrsHome</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="HomeMenu.aspx"><i class="fa fa-home" style="color: white"></i>&nbsp; Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AboutUs.aspx"><i class="fa fa-address-book" style="color: white"></i>&nbsp; About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-bag" style="color: white"></i>&nbsp; Shop
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Products.aspx">Purchase </a>
+                            <div class="dropdown-divider"></div>
+                            <asp:HyperLink ID="hlhistory" runat="server" CssClass="dropdown-item" NavigateUrl="~/UserLayer/PurchaseHistory.aspx" Visible="false">Purchase History</asp:HyperLink>
+                            <div class="dropdown-divider"></div>
+                            <asp:HyperLink ID="hlAdmin" runat="server" CssClass="dropdown-item" NavigateUrl="~/UserLayer/AdminHomePage.aspx" Visible="false">Admin Control Panel</asp:HyperLink>
+                        </div>
+                    </li>
+                </ul>
+                <i class="fa fa-lock" style="color: white"></i>
+                &nbsp;&nbsp;
+                <asp:Button ID="btnLogin" runat="server" Text=" Login" CssClass="btn btn-outline-success my-2 my-sm-0" PostBackUrl="~/UserLayer/Login.aspx" CausesValidation="false" />
+            </div>
+        </nav>
+
+       <%-- For web Page that replace by sub pages--%>
+        <asp:ContentPlaceHolder ID="DisplayChange" runat="server">
+            <asp:TextBox ID="TextBox1" runat="server">Item display here!!!</asp:TextBox>
+        </asp:ContentPlaceHolder>
+    </form>
+
+
+</body>
+</html>
